@@ -40,14 +40,21 @@
 			<small>Fotó: Állatbolondok társasága / Facebook<br/>&copy;Dr. Molnár Vince, 2022 :)</small>
 		</footer>
 		<script>
+		const queryString = window.location.search;
+		
 		var inputField = document.getElementById("input");
 		inputField.addEventListener("keydown", function(e) {
 			if (e.keyCode === 13) {
 				toGizsgugya();
 			}
 		});
-		inputField.focus();
-		inputField.select();
+		if (queryString) {
+			inputField.value = decodeURIComponent(queryString).substring(1);
+			toGizsgugya();
+		} else {
+			inputField.focus();
+			inputField.select();
+		}
 		
 		function toGizsgugya() {
 			var inputValue = inputField.value.toLowerCase();
