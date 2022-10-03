@@ -1,1 +1,74 @@
-Gizsgugya-gonverder
+<!doctype html>
+<html>
+	<head>
+		<title>Gizsgugya Gonverder</title>
+		<meta name="description" content="Magyar-Gizsgugya online fordító">
+		<meta name="keywords" content="gizsgugya konverter fordító">
+		<style>
+		article,header,footer {
+			width: 550px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		img {
+			width: 547px;
+			display: none;
+		}
+		input {
+			width: 547px;
+		}
+		footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 40px;   /* Height of the footer */
+		}
+		</style>
+		
+	</head>
+	<body>
+		<header>
+			<h1>Gizsgugya gonverder</h1>
+		</header>
+		<article>
+			<p><h3>Mid monnyon a gizsgugya?</h3></p>
+			<p><input type="text" id="input" name="input" value="kiskutya"/></p>
+			<p><img id="img" src="https://kep.cdn.index.hu/1/0/4057/40572/405724/40572487_22182a942adda628c3703fdef59e74d7_wm.jpg"></p>
+			<p><h2 id="target">&nbsp;</h2></p>
+		</article>
+		<footer>
+			<small>Fotó: Állatbolondok társasága / Facebook<br/>&copy;Dr. Molnár Vince, 2022</small>
+		</footer>
+		<script>
+		var inputField = document.getElementById("input");
+		inputField.addEventListener("keydown", function(e) {
+			if (e.code === "Enter") {
+				toGizsgugya();
+			}
+		});
+		
+		function toGizsgugya() {
+			var inputValue = inputField.value.toLowerCase();
+			var target = document.getElementById("target");
+			var img = document.getElementById("img");
+			
+			inputValue = inputValue.replaceAll("ndj", "nny");
+			inputValue = inputValue.replaceAll("dj", "gy");
+			inputValue = inputValue.replaceAll("lj", "jj");
+			inputValue = inputValue.replaceAll("ch", "g");
+			inputValue = inputValue.replaceAll("cs", "dzs");
+			inputValue = inputValue.replaceAll("ty", "gy");
+			inputValue = inputValue.replaceAll("sz", "z");
+			inputValue = inputValue.replaceAll("p", "b");
+			inputValue = inputValue.replaceAll("t", "d");
+			inputValue = inputValue.replaceAll("c", "dz");
+			inputValue = inputValue.replaceAll("k", "g");
+			inputValue = inputValue.replaceAll("f", "v");
+			inputValue = inputValue.replaceAll("s", "zs");
+			
+			img.style.display = "block";
+			target.innerHTML = inputValue.toUpperCase() + "!!!";
+		}
+		</script>
+	</body>
+</html>
