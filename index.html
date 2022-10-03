@@ -50,6 +50,9 @@
 		});
 		if (queryString) {
 			inputField.value = decodeURIComponent(queryString).substring(1);
+			if (inputField.value.includes("&")) {
+				inputField.value = inputField.value.substring(0, inputField.value.indexOf("&"));
+			}
 			toGizsgugya();
 		} else {
 			inputField.focus();
