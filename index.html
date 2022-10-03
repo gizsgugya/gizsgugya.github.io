@@ -46,6 +46,8 @@
 				toGizsgugya();
 			}
 		});
+		inputField.focus();
+		inputField.select();
 		
 		function toGizsgugya() {
 			var inputValue = inputField.value.toLowerCase();
@@ -68,6 +70,9 @@
 			
 			img.style.display = "block";
 			target.innerHTML = inputValue.toUpperCase() + "!!!";
+			
+			inputField.focus();
+			inputField.select();
 		}
 		</script>
 	</body>
